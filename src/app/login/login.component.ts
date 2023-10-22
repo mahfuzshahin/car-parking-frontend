@@ -11,11 +11,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class LoginComponent implements OnInit{
   user = new User();
   returnUrl!: string;
-  constructor(private service: AuthService, private router: Router, private route: ActivatedRoute) {
+  constructor(public service: AuthService, private router: Router, private route: ActivatedRoute) {
   }
 
-  ngOnInit(): void {
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
+  ngOnInit() {
   }
   onSubmit() {
     this.service.postLogin(this.user).subscribe((response:any)=>{

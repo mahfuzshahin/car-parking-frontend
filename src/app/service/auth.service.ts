@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../model/user";
 import {map, tap} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   baseUrl: string= 'http://127.0.0.1:4001/api'
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   postLogin(user: User){
     const headers = { 'content-type': 'application/json'}
@@ -25,8 +26,11 @@ export class AuthService {
   get isLoggedIn() {
     if (localStorage.getItem('authUser')) {
       return true;
+    }else{
+      this.router.navigate(['/profile'])
+      return false;
     }
-    return false;
+
   }
   logout() {
     return this.http.get(`${this.baseUrl}/logout`)

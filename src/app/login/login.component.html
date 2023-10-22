@@ -1,11 +1,15 @@
-<div class="container">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" [(ngModel)]="user.email" required>
+<div class="container" *ngIf="service.isLoggedIn">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" class="form-control" [(ngModel)]="user.email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password" required>
+        </div>
+        <button type="submit" (click)="onSubmit()" class="btn btn-primary float-end mt-2">Login</button>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
-    </div>
-    <button type="submit" (click)="onSubmit()">Login</button>
 </div>
