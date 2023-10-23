@@ -26,11 +26,8 @@ export class AuthService {
   get isLoggedIn() {
     if (localStorage.getItem('authUser')) {
       return true;
-    }else{
-      this.router.navigate(['/profile'])
-      return false;
     }
-
+    return false;
   }
   logout() {
     return this.http.get(`${this.baseUrl}/logout`)

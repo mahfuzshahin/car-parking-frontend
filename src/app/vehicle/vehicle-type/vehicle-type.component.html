@@ -1,0 +1,18 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>SL</th>
+        <th>Name</th>
+        <th>Parking Charge</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicleType of vehicleTypes; let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{vehicleType.name}}</td>
+        <td>{{vehicleType.parking_charge}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

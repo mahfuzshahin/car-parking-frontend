@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class LoginComponent implements OnInit{
   user = new User();
   returnUrl!: string;
-  constructor(public service: AuthService, private router: Router, private route: ActivatedRoute) {
+  constructor(private service: AuthService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {

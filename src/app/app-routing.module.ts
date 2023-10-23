@@ -4,6 +4,8 @@ import {LoginComponent} from "./login/login.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {ProfileComponent} from "./profile/profile.component";
+import {VehicleTypeComponent} from "./vehicle/vehicle-type/vehicle-type.component";
+import {VehicleComponent} from "./vehicle/vehicle/vehicle.component";
 
 const routes: Routes = [
   {
@@ -22,6 +24,16 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'vehicle-type',
+    component: VehicleTypeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'vehicle',
+    component: VehicleComponent,
     canActivate: [AuthGuard]
   },
 ];
