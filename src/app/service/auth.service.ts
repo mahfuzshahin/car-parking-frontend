@@ -24,7 +24,7 @@ export class AuthService {
     return JSON.parse(sessionStorage.getItem('authUser') as string);
   }
   get isLoggedIn() {
-    if (localStorage.getItem('authUser')) {
+    if (sessionStorage.getItem('authUser')) {
       return true;
     }
     return false;
@@ -32,7 +32,7 @@ export class AuthService {
   logout() {
     return this.http.get(`${this.baseUrl}/logout`)
       .pipe(tap(() => {
-        localStorage.removeItem('authUser')
+        sessionStorage.removeItem('authUser')
       }));
   }
 
